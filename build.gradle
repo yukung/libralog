@@ -80,6 +80,9 @@ dependencies {
     runtime "org.grails.plugins:asset-pipeline"
     runtime "org.grails.plugins:scaffolding"
 
+    runtime 'org.webjars.bower:bootstrap:3.3.4'
+    runtime 'org.webjars:font-awesome:4.3.0-2'
+
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
 
