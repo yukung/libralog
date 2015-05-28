@@ -29,6 +29,11 @@ class BookController {
         respond Book.list(params), model:[bookCount: Book.count()]
     }
 
+    def search(String title, Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond Book.findAllByTitleLike("%$title%", params), model: [bookCount: Book.countByTitleLike("%$title%", params)], view: 'index'
+    }
+
     def show(Book book) {
         respond book
     }

@@ -84,12 +84,14 @@
     <div class="col-md-5 col-md-offset-7">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-            </span>
-          </div>
+          <g:form action="search">
+            <div class="input-group">
+              <g:textField name="title" class="form-control" placeholder="本のタイトルを入力"/>
+              <span class="input-group-btn">
+                <g:submitButton name="search" value="Search" class="btn btn-default"></g:submitButton>
+              </span>
+            </div>
+          </g:form>
         </div>
       </div>
     </div>
@@ -98,7 +100,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          %{--<div class="text-right">1 - 3件 / 3件</div>--}%
+          <div class="text-right">全 ${bookCount} 冊</div>
         </div>
         <div class="panel-body">
           <f:table collection="${bookList}"/>
