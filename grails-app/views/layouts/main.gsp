@@ -18,9 +18,9 @@
 <html lang="ja" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title><g:layoutTitle default="libralog"/></title>
   <asset:stylesheet src="application.css"/>
 

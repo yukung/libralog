@@ -23,25 +23,109 @@
 </head>
 
 <body>
-<a href="#list-book" class="skip" tabindex="-1"><g:message code="default.link.skip.label"
-                                                           default="Skip to content&hellip;"/></a>
-
-<div class="nav" role="navigation">
-  <ul>
-    <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-    <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]"/></g:link></li>
-  </ul>
-</div>
-
-<div id="list-book" class="content scaffold-list" role="main">
-  <h1><g:message code="default.list.label" args="[entityName]"/></h1>
+<header class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Libralog</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+        <li class="active"><a href="#library">蔵書一覧</a></li>
+        <li class="disabled"><a href="#track">読書記録</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">username <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]"/></g:link></li>
+            <li><a href="#">設定</a></li>
+            <li><a href="#">ログアウト</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <nav class="row">
+    <div class="col-md-6">
+      <ul class="nav nav-tabs">
+        <li class="disabled">
+          <a href="#" data-toggle="tab" aria-expanded="false">本棚</a>
+        </li>
+        <li class="active">
+          <a href="#" data-toggle="tab" aria-expanded="true">リスト</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1><g:message code="default.list.label" args="[entityName]"/></h1>
+      </div>
+    </div>
+  </div>
   <g:if test="${flash.message}">
-    <div class="message" role="status">${flash.message}</div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-info" role="alert">${flash.message}</div>
+      </div>
+    </div>
   </g:if>
-  <f:table collection="${bookList}"/>
-
-  <div class="pagination">
-    <g:paginate total="${bookCount ?: 0}"/>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-7">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="text-right">1 - 3件 / 3件</div>
+        </div>
+        <div class="panel-body">
+          <f:table collection="${bookList}"/>
+        </div>
+        <div class="panel-footer">
+          <div class="text-center">
+            <ul class="pagination">
+              <li class="disabled">
+                <a href="#">«</a>
+              </li>
+              <li class="active">
+                <a href="#">1</a>
+              </li>
+              <li>
+                <a href="#">2</a>
+              </li>
+              <li>
+                <a href="#">»</a>
+              </li>
+            </ul>
+          </div>
+          <div class="pagination">
+            <g:paginate total="${bookCount ?: 0}"/>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </body>
