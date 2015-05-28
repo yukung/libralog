@@ -37,19 +37,19 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><a href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-        <li class="active"><a href="#library">蔵書一覧</a></li>
+        <li class="active"><a href="${createLink(uri: '/book/index')}">蔵書一覧</a></li>
         <li class="disabled"><a href="#track">読書記録</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">username <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]"/></g:link></li>
-            <li><a href="#">設定</a></li>
-            <li><a href="#">ログアウト</a></li>
-          </ul>
-        </li>
-      </ul>
+      %{--<ul class="nav navbar-nav navbar-right">--}%
+        %{--<li class="dropdown">--}%
+          %{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">username <span class="caret"></span></a>--}%
+          %{--<ul class="dropdown-menu" role="menu">--}%
+            %{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]"/></g:link></li>--}%
+            %{--<li><a href="#">設定</a></li>--}%
+            %{--<li><a href="#">ログアウト</a></li>--}%
+          %{--</ul>--}%
+        %{--</li>--}%
+      %{--</ul>--}%
     </div>
   </div>
 </header>
@@ -98,30 +98,16 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="text-right">1 - 3件 / 3件</div>
+          %{--<div class="text-right">1 - 3件 / 3件</div>--}%
         </div>
         <div class="panel-body">
           <f:table collection="${bookList}"/>
         </div>
         <div class="panel-footer">
           <div class="text-center">
-            <ul class="pagination">
-              <li class="disabled">
-                <a href="#">«</a>
-              </li>
-              <li class="active">
-                <a href="#">1</a>
-              </li>
-              <li>
-                <a href="#">2</a>
-              </li>
-              <li>
-                <a href="#">»</a>
-              </li>
-            </ul>
-          </div>
-          <div class="pagination">
-            <g:paginate total="${bookCount ?: 0}"/>
+            <div class="pagination">
+              <g:paginate total="${bookCount ?: 0}"/>
+            </div>
           </div>
         </div>
       </div>
