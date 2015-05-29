@@ -101,6 +101,9 @@ sourceSets {
     }
 }
 
+// for heroku
+defaultTasks "clean", "assemble"
+
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
 }
