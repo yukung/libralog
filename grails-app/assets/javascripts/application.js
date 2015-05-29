@@ -22,7 +22,7 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery-2.1.3.js
-//= require webjars/bootstrap/3.3.4/dist/js/bootstrap.js
+//= require bootstrap
 //= require_tree .
 //= require_self
 
