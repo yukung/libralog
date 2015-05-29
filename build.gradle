@@ -102,7 +102,9 @@ sourceSets {
 }
 
 // for heroku
-defaultTasks "clean", "assemble"
+distZip.enabled = false
+distTar.enabled = false
+task stage (dependsOn : ['clean', 'assemble'])
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
