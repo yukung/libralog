@@ -26,11 +26,12 @@ class Book {
     String title
     String author
     String publisher
-    Date publicationDate
+    String publicationYear
     Integer numberOfPages
     Integer price
     static constraints = {
         isbn size: 13..13, blank: false, unique: true, matches: /[0-9]+/
+        publicationYear size: 4..4, blank: false, unique: false, matches: /[0-9]+/
         numberOfPages min: 0
         price min: 0
     }

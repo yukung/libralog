@@ -1,10 +1,10 @@
 databaseChangeLog = {
 
-    changeSet(author: "yukung (generated)", id: "1432871562872-1") {
+    changeSet(author: "yukung (generated)", id: "1432993490872-1") {
         createSequence(sequenceName: "hibernate_sequence")
     }
 
-    changeSet(author: "yukung (generated)", id: "1432871562872-2") {
+    changeSet(author: "yukung (generated)", id: "1432993490872-2") {
         createTable(tableName: "book") {
             column(name: "id", type: "BIGINT") {
                 constraints(nullable: "false")
@@ -30,7 +30,7 @@ databaseChangeLog = {
                 constraints(nullable: "false")
             }
 
-            column(name: "publication_date", type: "TIMESTAMP WITHOUT TIME ZONE") {
+            column(name: "publication_year", type: "VARCHAR(4)") {
                 constraints(nullable: "false")
             }
 
@@ -44,11 +44,11 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "yukung (generated)", id: "1432871562872-3") {
+    changeSet(author: "yukung (generated)", id: "1432993490872-3") {
         addPrimaryKey(columnNames: "id", constraintName: "book_pkey", tableName: "book")
     }
 
-    changeSet(author: "yukung (generated)", id: "1432871562872-4") {
+    changeSet(author: "yukung (generated)", id: "1432993490872-4") {
         addUniqueConstraint(columnNames: "isbn", constraintName: "uk_ehpdfjpu1jm3hijhj4mm0hx9h", deferrable: "false", disabled: "false", initiallyDeferred: "false", tableName: "book")
     }
 }
