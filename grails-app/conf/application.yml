@@ -93,6 +93,9 @@ environments:
         dataSource:
             # dbCreate: update
             # url: jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            url: @heroku.db.url@
+            username: @heroku.db.user@
+            password: @heroku.db.passwd@
             properties:
                 jmxEnabled: true
                 initialSize: 5

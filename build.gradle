@@ -101,6 +101,23 @@ sourceSets {
     }
 }
 
+import org.apache.tools.ant.filters.ReplaceTokens
+processResources {
+    filesMatching('**/application.yml') {
+        def dbUri = new URI(System.env['DATABASE_URL'])
+        if (dbUri) {
+            def username = dbUri.getUserInfo()?.split(':')[0]
+            def password = dbUri.getUserInfo()?.split(':')[1]
+            def port = dbUri.port
+            filter ReplaceTokens, tokens: [
+                    'heroku.db.url': "jdbc:postgresql://${dbUri.host}:${port}${dbUri.path}" as String,
+                    'heroku.db.user': username,
+                    'heroku.db.passwd': password
+            ]
+        }
+    }
+}
+
 // for heroku
 distZip.enabled = false
 distTar.enabled = false
