@@ -104,8 +104,9 @@ sourceSets {
 import org.apache.tools.ant.filters.ReplaceTokens
 processResources {
     filesMatching('**/application.yml') {
-        def dbUri = new URI(System.env['DATABASE_URL'])
-        if (dbUri) {
+        def existsUrl = System.getenv('DATABASE_URL')
+        if (existsUrl) {
+            def dbUri = new URI(existsUrl)
             def username = dbUri.getUserInfo()?.split(':')[0]
             def password = dbUri.getUserInfo()?.split(':')[1]
             def port = dbUri.port
