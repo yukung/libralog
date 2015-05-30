@@ -121,7 +121,8 @@ processResources {
 // for heroku
 distZip.enabled = false
 distTar.enabled = false
-task stage (dependsOn : ['clean', 'assemble'])
+task stage(dependsOn: ['clean', 'assemble'])
+stage.mustRunAfter('clean')
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
