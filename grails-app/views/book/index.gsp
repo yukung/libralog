@@ -84,11 +84,11 @@
     <div class="col-md-5 col-md-offset-7">
       <div class="panel panel-default">
         <div class="panel-body">
-          <g:form action="search">
+          <g:form action="list" method="GET">
             <div class="input-group">
               <g:textField name="title" class="form-control" placeholder="本のタイトルを入力"/>
               <span class="input-group-btn">
-                <g:submitButton name="search" value="Search" class="btn btn-default"></g:submitButton>
+                <input type="submit" value="検索" class="btn btn-default">
               </span>
             </div>
           </g:form>
@@ -100,7 +100,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="text-right">全 ${bookCount} 冊</div>
+          <div class="text-right">全 ${bookCount ?: 0} 冊</div>
         </div>
         <div class="panel-body">
           <f:table collection="${bookList}"/>
@@ -108,7 +108,7 @@
         <div class="panel-footer">
           <div class="text-center">
             <div class="pagination">
-              <g:paginate total="${bookCount ?: 0}"/>
+              <g:paginate action="list" total="${bookCount ?: 0}" params="${params}"/>
             </div>
           </div>
         </div>
