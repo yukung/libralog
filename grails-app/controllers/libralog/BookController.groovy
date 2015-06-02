@@ -25,12 +25,12 @@ class BookController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 20, 100)
         respond Book.list(params), model:[bookCount: Book.count()]
     }
 
     def search(String title, Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 20, 100)
         respond Book.findAllByTitleLike("%$title%", params), model: [bookCount: Book.countByTitleLike("%$title%", params)], view: 'index'
     }
 
