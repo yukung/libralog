@@ -34,8 +34,8 @@ class BookController {
         def bookList
         def bookCount
         if (params.title) {
-            bookList = Book.findAllByTitleLike("%${params.title}%", params)
-            bookCount = Book.countByTitleLike("%${params.title}%")
+            bookList = Book.findAllByTitleIlike("%${params.title}%", params)
+            bookCount = Book.countByTitleIlike("%${params.title}%")
         } else {
             bookList = Book.list(params)
             bookCount = Book.count()
